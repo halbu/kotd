@@ -2,7 +2,7 @@
 // List of musical keys
 const musicalKeys = [
     'C', 'G', 'D', 'A', 'E', 'B', 'F#', 'C#',
-    'F', 'Bb', 'Eb', 'Ab', 'Db', 'Gb'
+    'F', 'Bb', 'Eb', 'Ab'//, 'Db', 'Gb'
 ];
 
 // Function to get deterministic key for a date
@@ -19,15 +19,19 @@ function getKeyForDate(date) {
     }
 
     // Use hash to select key deterministically
-    return musicalKeys[Math.abs(hash % musicalKeys.length)];
+    // return musicalKeys[Math.abs(hash % musicalKeys.length)];
+    let randomKey = musicalKeys[Math.random() * musicalKeys.length | 0]; // Randomly select a key for demonstration
+    randomKey = randomKey + (Math.random() < 0.5 ? 'm' : ''); // Randomly decide if the key is minor
+    return randomKey;
 }
 
 // Function to update display
 function updateDisplay() {
     const today = new Date();
     const key = getKeyForDate(today);
-    
-    document.getElementById('key-display').textContent = key;
+    const keyEl = document.getElementById('key-display');
+    keyEl.textContent = key;
+
     document.getElementById('date-info').textContent = 
         `Today is ${today.toLocaleDateString()}`;
 }
