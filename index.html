@@ -26,7 +26,7 @@
 
 <script>
   const { Renderer, Stave, StaveNote, Voice, Formatter, Accidental } = Vex.Flow;
-
+  
   // Create an SVG renderer and attach it to the DIV element named "output".
   const div = document.getElementById("output");
   const renderer = new Renderer(div, Renderer.Backends.SVG);
@@ -77,6 +77,8 @@
     }
   }
 
+  const beams = Vex.Flow.Beam.generateBeams(notes, {groups : [ new Vex.Flow.Fraction(4,4) ]});
+
   // Create a voice in 4/4 and add above notes
   const voice = new Voice({ num_beats: 4, beat_value: 4 }).setStrict(false);
   voice.addTickables(notes);
@@ -86,6 +88,10 @@
 
   // Render voice
   voice.draw(context, stave);
+  
+  beams.forEach(function(beam){
+    beam.setContext(context).draw();
+  });
 </script>
 
 </html>

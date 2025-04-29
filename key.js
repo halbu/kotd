@@ -4,9 +4,7 @@ function keyToIndex(k) {
 }
 
 function generateScale(scaleKey) {
-  let keyIsRandom = true; // Default to random key generation.
-  let keyIndex = -1;
-  let keyIsMinor = false;
+  let keyIsRandom = 1, keyIndex = -1, keyIsMinor = false;
 
   if (scaleKey !== undefined) {
     keyIsRandom = false;
@@ -59,7 +57,7 @@ function convertKeyToScale(keyIdx, keyIsMinor) {
 
   if (keyIsMinor) {
     root = root + 'm';
-    [2, 5, 6].forEach((i) => {  SCALE[i] = (SCALE[i].endsWith('#') ? SCALE[i].slice(0, -1) : SCALE[i] + 'b') })
+    [2, 5, 6].forEach((i) => { SCALE[i] = (SCALE[i].endsWith('#') ? SCALE[i].slice(0, -1) : SCALE[i] + 'b') })
   }
 
   // Push all accidentals into a convenience array.
@@ -69,7 +67,7 @@ function convertKeyToScale(keyIdx, keyIsMinor) {
     }
   }
 
-  // Now let's add octave numbers to the notes. We start in the fourth octave for all scales.
+  // Add octave numbers to the notes. We start in the fourth octave for all scales.
   let oct = 4;
   for (i = 0; i < SCALE.length; i++) {
     if (i > 0 && SCALE[i].charAt(0) === 'C') { oct++; }
