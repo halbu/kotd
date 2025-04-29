@@ -44,7 +44,7 @@ function vexflowRender() {
   const renderer = new Renderer(div, Renderer.Backends.SVG);
 
   // Configure the rendering context.
-  renderer.resize(500, 500);
+  renderer.resize(500, 150);
   const context = renderer.getContext();
 
   // Create a stave of width 400 at position 10, 40 on the canvas.

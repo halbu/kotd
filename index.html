@@ -21,67 +21,42 @@
 
     <div>
       <h2> Sample chord progressions: </h2>
-      <h3 id="cprog">weed</h3>
+      <div class="descBox" id="d1"></div>
+      <div class="progBox" id="b1">
+        <div class="chordBox" id="b1c1">.</div>
+        <div class="chordBox" id="b1c2">.</div>
+        <div class="chordBox" id="b1c3">.</div>
+        <div class="chordBox" id="b1c4">.</div>
+      </div>
+      <div class="progBox" id="b2">
+        <div class="chordBox" id="b2c1">.</div>
+        <div class="chordBox" id="b2c2">.</div>
+        <div class="chordBox" id="b2c3">.</div>
+        <div class="chordBox" id="b2c4">.</div>
+      </div>
     </div>
+      <div class="progBox" id="b3">
+        <div class="chordBox" id="b3c1">.</div>
+        <div class="chordBox" id="b3c2">.</div>
+        <div class="chordBox" id="b3c3">.</div>
+        <div class="chordBox" id="b3c4">.</div>
+      </div>
+      <div class="progBox" id="b4">
+        <div class="chordBox" id="b4c1">.</div>
+        <div class="chordBox" id="b4c2">.</div>
+        <div class="chordBox" id="b4c3">.</div>
+        <div class="chordBox" id="b4c4">.</div>
+      </div>
 </body>
 
 <script src="key.js"></script>
 <script src="app.js"></script>
 <script src="progs.js"></script>
-<script>updateDisplay();</script>
-<script>vexflowRender();</script>
-
+<script src="chordprogs.js"></script>
 <script>
-  // Get root
-  const keyEl = document.getElementById('key-display');
-  let myKey = keyEl.textContent;
-  if (myKey.endsWith('m')) {
-    myKey = myKey.slice(0, -1);
-  }
-  let chromaticScaleToUse = (myKey.length === 1 || myKey.endsWith('b')) ? flatChrom : sharpChrom;
-  let rootIdx = chromaticScaleToUse.indexOf(myKey);
-  console.log(`Root index: ${rootIdx}`);
-
-  let cprogstr = chordProgressions[Math.floor(Math.random() * chordProgressions.length)].sequence;
-  let chordProg = [];
-
-  // Convert the chords from our random progression into the appropriate key
-  for (var i = 0; i != 16; ++i) {
-    chordProg.push(romanToChord(cprogstr[i], chromaticScaleToUse));
-  }
-
-  let progStr = '';
-  let last = '';
-  for (var i = 0; i != 16; ++i) {
-    if (i === 0) {
-      progStr += chordProg[i];
-      last = chordProg[i]
-    } else {
-      if (chordProg[i] !== last) {
-        progStr += ' ' + chordProg[i];
-        last = chordProg[i]
-      } else {
-        progStr += ' -';
-      }
-      if ((i+1) % 4 === 0) {
-        progStr += ' |';
-      }
-    }
-  }
-  if (progStr.endsWith(' |')) {
-    progStr = progStr.slice(0, -2);
-  }
-  
-  const cProgEl = document.getElementById('cprog');
-  cProgEl.textContent = progStr;
-  console.log(progStr)
-  console.log(chordProg.join(', '))
-
-  function romanToChord(r, scale) {
-    const add = chordMap[r[0]];
-    const newChord = scale[(rootIdx + add) % 12];
-    return (newChord + r[1])
-  }
+  updateDisplay();
+  vexflowRender();
+  addChordProg();
 </script>
 
 </html>

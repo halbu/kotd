@@ -1,19 +1,7 @@
 const flatChrom = ['C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab', 'A', 'Bb', 'B'];
 const sharpChrom = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
-const chordMap = {
-  'I': 0,
-  'bII': 1,
-  'II': 2,
-  'bIII': 3,
-  'III': 4,
-  'IV': 5,
-  'bV': 6,
-  'V': 7,
-  'bVI': 8,
-  'VI': 9,
-  'bVII': 10,
-  'VII': 11, // Not used in this context
-}
+const chordMap = { 'I': 0, 'bII': 1, 'II': 2, 'bIII': 3, 'III': 4, 'IV': 5, 'bV': 6,
+  'V': 7, 'bVI': 8, 'VI': 9, 'bVII': 10, 'VII': 11 }
 
 function keyToIndex(k) {
   // 0 is C. 1 through 7 are the flat keys. 8 through 14 are the sharp keys.
@@ -31,8 +19,7 @@ function generateScale(scaleKey) {
         keyIsMinor = true;
       }
       keyIndex = keyToIndex(scaleKey);
-    } else {
-      throw new Error(`Invalid key format. Provide a string of the form 'A', 'F#', 'Ebm', etc.`);
+      if (keyIndex === -1) { throw new Error(`Invalid key. Key must be of form 'F#', 'Ebm', etc.`); } 
     }
   } else {
     keyIndex = Math.floor(Math.random() * 15);
