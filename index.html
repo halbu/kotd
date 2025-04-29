@@ -27,6 +27,7 @@
 
 <script src="key.js"></script>
 <script src="app.js"></script>
+<script src="progs.js"></script>
 <script>updateDisplay();</script>
 <script>vexflowRender();</script>
 
@@ -41,16 +42,10 @@
   let rootIdx = chromaticScaleToUse.indexOf(myKey);
   console.log(`Root index: ${rootIdx}`);
 
-  let cprogstr = [
-    [ 'I', 'm9' ],[ 'I', 'm9' ],[ 'I', 'm9' ],[ 'bII', 'm9' ],
-    [ 'I', 'm9' ],[ 'I', 'm9' ],[ 'I', 'm9' ],[ 'bII', 'm9' ],
-    [ 'II', 'm9' ],[ 'II', 'm9' ],[ 'II', 'm9' ],[ 'bIII', 'm9' ],
-    [ 'II', 'm9' ],[ 'II', 'm9' ],[ 'II', 'm9' ],[ 'bII', 'm9' ],
-  ];
-
+  let cprogstr = chordProgressions[Math.floor(Math.random() * chordProgressions.length)].sequence;
   let chordProg = [];
 
-  // Convert these into the appropriate key
+  // Convert the chords from our random progression into the appropriate key
   for (var i = 0; i != 16; ++i) {
     chordProg.push(romanToChord(cprogstr[i], chromaticScaleToUse));
   }
