@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <script src="https://cdn.jsdelivr.net/npm/vexflow@4.2.2/build/cjs/vexflow.js"></script>
+  <script src="app.js"></script>
+  <link rel="stylesheet" href="style.css">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Musical Key</title>
+</head>
+
+
+<body>
+    <div class="container">
+        <div id="intro">The key of the day is...</div>
+        <div id="key-display"></div>
+        <div id="date-info"></div>
+    </div>
+
+    <div id="output"></div>
+</body>
+
+  <script>
+    const { Factory, EasyScore, System } = Vex.Flow;
+
+    const vf = new Factory({
+      renderer: { elementId: 'output', width: 500, height: 200 },
+    });
+
+    const score = vf.EasyScore();
+    const system = vf.System();
+
+    // system
+    //   .addStave({
+    //     voices: [
+    //       score.voice(score.notes('E4/q, F4/q, G4/q, A4/q, A4/q', { stem: 'up' })).setStrict(false),
+    //     ],
+    //   })
+    //   .addClef('treble')
+    //   .addKeySignature('Eb');
+
+    //   system.factory.voices[0].setStrict(false);
+
+    // First create the notes string
+  const notesString = 'E4/q, F4/q, G4/q, A4/q, B4/q, C5/q, D5/q, E5/q';
+
+  // Create the voice with setStrict(false) BEFORE parsing notes
+  const voice = new Vex.Flow.Voice({
+      num_beats: 4,
+      beat_value: 4,
+      resolution: Vex.Flow.RESOLUTION
+  }).setStrict(false);
+
+  // Then parse the notes into the voice
+  voice.addTickables(score.notes(notesString));
+
+  // Create a formatter instance
+const formatter = new Vex.Flow.Formatter();
+formatter.joinVoices([voice]);
+
+// Format with increased spacing (multiply by 1.5 for 50% more space)
+formatter.format([voice], 400 * 1.5); // Adjust 1.5 to control spacing
+
+  // Add to stave
+  system.addStave({
+      voices: [voice],
+      width: 500
+  })
+  .addClef('treble')
+  .addKeySignature('Eb');
+
+    vf.draw();
+
+  </script>
+
+  <script>updateDisplay();</script>
+</html>

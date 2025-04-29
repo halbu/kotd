@@ -1,0 +1,36 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+#key-display {
+    font-size: 48px;
+    margin: 20px 0;
+    font-weight: bold;
+    color: #333;
+}
+
+#date-info {
+    font-size: 14px;
+    color: #666;
+    margin-top: 20px;
+}
+
+#output {
+text-align: center;
+padding-left: 130px;
+}
