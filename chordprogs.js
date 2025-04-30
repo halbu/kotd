@@ -29,9 +29,7 @@ function addChordProg() {
   prog = prog.map((chord, i) => { return (i > 0 && chord === prog[i - 1]) ? '/' : chord });
 
   // At this point, we need to programatically generate the HTML that will display the chord progression.
-  // We will use the IDs of the HTML elements to place the chords in the right spots.
   const rootEl = document.getElementById('chord-chart-container');
-  // rootEl.after('<h1>TEST</h1>');
 
   insertEightMeasures(rootEl, 8);
   insertEightMeasures(rootEl, 0);
@@ -40,6 +38,8 @@ function addChordProg() {
     document.getElementById(`m${i}`).textContent = prog[i];
     if (document.getElementById(`m${i}`).textContent !== '/') {
       document.getElementById(`m${i}`).classList.add('chord');
+    } else {
+      document.getElementById(`m${i}`).classList.add('repeat');
     }
   }
 
@@ -57,10 +57,12 @@ function insertEightMeasures(rootEl, mIdx) {
 
   rootEl.insertAdjacentHTML('afterend', `
     <div class="chord-chart-container">
-      <div class="progBox" id="b1">
-      ` + ((mIdx === 0)
-          ? `<div class="vertical-lines left"><span></span><span></span></div>`
-          : `<div class="vertical-lines right"><span></span></div>`)
+      <div class="progBox" id="b1">` +
+      // ` + ((mIdx === 0)
+      //     ? `<div class="vertical-lines left"><span></span><span></span></div>`
+      //     : `<div class="vertical-lines right"><span></span></div>`)
+      // + `  
+      `<div class="vertical-lines right"><span></span></div>`
       + `  
         <div class="measure" id="m${mIdx + 0}">.</div>
         <div class="${vertclasses}"><span></span></div>

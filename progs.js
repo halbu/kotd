@@ -42,7 +42,16 @@ let chordProgressions = [
       [[ 'I', 'm7' ]], 
       [[ 'bVI', 'maj7' ]],
       [[ 'II', 'm7b5' ]],
-      [[ 'V', 'm7' ], [ 'V', 'm7' ], [ 'V', '7' ], [ 'V', '7' ]]
+      [[ 'V', 'm7' ], [ 'V', 'm7' ], [ 'V', '7#9' ], [ 'V', '7#9' ]]
+    ]
+  },
+  {
+    description: 'Minor-major-minor with backdoor',
+    sequence: [
+      [[ 'I', 'm13' ], [ 'I', 'm13' ], [ 'I', 'm13' ], [ 'III', '7#5#9' ]], 
+      [[ 'IV', 'm9' ]],
+      [[ 'bVII', '9' ]],
+      [[ 'I', 'maj7' ]]
     ]
   }
 ];

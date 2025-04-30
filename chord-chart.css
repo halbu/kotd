@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'PetalumaScript';
+  src: url('assets/PetalumaScript.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* Add this */
+}
+
 .chord-chart-container {
   display: flex;
   flex-direction: row;
@@ -6,12 +14,12 @@
 
 .vertical-lines {
   position: relative;
-  height: 60px;
+  height: 40px;
 }
 
 .vertical-lines-intermediate {
   position: relative;
-  height: 50px;
+  height: 35px;
 }
 
 .intermediate span {
@@ -41,13 +49,6 @@
   right: 0;
 }
 
-.chord-chart {
-  margin: 0 10px;
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-
 .intermediate-line {
   width: 5px;
   height: 80%;
@@ -55,14 +56,14 @@
 }
 
 .measure {
-  width: 90px;
-  height: 35px;
-  margin: 10px;
+  width: 80px;
+  height: 28px;
+  margin: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: Arial, sans-serif;
-  font-size: 16px;
+  font-family: 'PetalumaScript', sans-serif; /* Added fallback */
+  font-size: 14px;
 }
 
 .measure.chord {
@@ -70,5 +71,5 @@
 }
 
 .measure.repeat {
-  border: none;
+  border: 1px solid #ffffff00;
 }
