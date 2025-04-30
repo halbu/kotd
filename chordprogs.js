@@ -26,11 +26,20 @@ function addChordProg() {
     }
   }
 
-  prog = prog.map((chord, i) => { return (i > 0 && chord === prog[i - 1]) ? '-' : chord });
+  prog = prog.map((chord, i) => { return (i > 0 && chord === prog[i - 1]) ? '/' : chord });
 
-  for (let i = 0; i < 4; i++) {
-    for (let j = 0; j < 4; j++) {
-      document.getElementById(`b${i + 1}c${j + 1}`).textContent = prog[i * 4 + j];
+  // At this point, we need to programatically generate the HTML that will display the chord progression.
+  // We will use the IDs of the HTML elements to place the chords in the right spots.
+  const rootEl = document.getElementById('chord-chart-container');
+  // rootEl.after('<h1>TEST</h1>');
+
+  insertEightMeasures(rootEl, 8);
+  insertEightMeasures(rootEl, 0);
+
+  for (let i = 0; i < 16; i++) {
+    document.getElementById(`m${i}`).textContent = prog[i];
+    if (document.getElementById(`m${i}`).textContent !== '/') {
+      document.getElementById(`m${i}`).classList.add('chord');
     }
   }
 
@@ -41,4 +50,37 @@ function addChordProg() {
     const newChord = scale[(rootIdx + add) % 12];
     return (newChord + r[1])
   }
+}
+
+function insertEightMeasures(rootEl, mIdx) {
+  const vertclasses = `vertical-lines-intermediate intermediate`
+
+  rootEl.insertAdjacentHTML('afterend', `
+    <div class="chord-chart-container">
+      <div class="progBox" id="b1">
+      ` + ((mIdx === 0)
+          ? `<div class="vertical-lines left"><span></span><span></span></div>`
+          : `<div class="vertical-lines right"><span></span></div>`)
+      + `  
+        <div class="measure" id="m${mIdx + 0}">.</div>
+        <div class="${vertclasses}"><span></span></div>
+        <div class="measure" id="m${mIdx + 1}">.</div>
+        <div class="${vertclasses}"><span></span></div>
+        <div class="measure" id="m${mIdx + 2}">.</div>
+        <div class="${vertclasses}"><span></span></div>
+        <div class="measure" id="m${mIdx + 3}">.</div>
+        <div class="vertical-lines right"><span></span></div>
+      </div>
+      <div class="progBox" id="b1">
+        <div class="measure" id="m${mIdx + 4}">.</div>
+        <div class="${vertclasses}"><span></span></div>
+        <div class="measure" id="m${mIdx + 5}">.</div>
+        <div class="${vertclasses}"><span></span></div>
+        <div class="measure" id="m${mIdx + 6}">.</div>
+        <div class="${vertclasses}"><span></span></div>
+        <div class="measure" id="m${mIdx + 7}">.</div>
+        <div class="vertical-lines right"><span></span></div>
+      </div>
+    `
+  );
 }

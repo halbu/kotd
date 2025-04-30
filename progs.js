@@ -35,5 +35,14 @@ let chordProgressions = [
       [[ 'bVI', 'maj7' ], [ 'bVI', 'maj7' ], [ 'bVI', 'maj7' ], [ 'bVI', 'maj7' ]],
       [[ 'V', '7' ], [ 'V', '7' ], [ 'V', '7' ], [ 'V', '7' ]], 
     ]
+  },
+  {
+    description: 'Stolen from reddit', // https://old.reddit.com/r/jazztheory/comments/10xilmz/understanding_jazz_minor_key_chord_progressions/
+    sequence: [
+      [[ 'I', 'm7' ]], 
+      [[ 'bVI', 'maj7' ]],
+      [[ 'II', 'm7b5' ]],
+      [[ 'V', 'm7' ], [ 'V', 'm7' ], [ 'V', '7' ], [ 'V', '7' ]]
+    ]
   }
 ];

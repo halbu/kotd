@@ -1,0 +1,74 @@
+.chord-chart-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.vertical-lines {
+  position: relative;
+  height: 60px;
+}
+
+.vertical-lines-intermediate {
+  position: relative;
+  height: 50px;
+}
+
+.intermediate span {
+  position: absolute;
+  width: 2px;
+  background-color: #bbb;
+  height: 100%;
+}
+
+.left span,
+.right span {
+  position: absolute;
+  width: 2px;
+  background-color: #333;
+  height: 100%;
+}
+
+.left span:first-child {
+  left: 0;
+}
+
+.left span:last-child {
+  left: 5px;
+}
+
+.right span {
+  right: 0;
+}
+
+.chord-chart {
+  margin: 0 10px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.intermediate-line {
+  width: 5px;
+  height: 80%;
+  background-color: #ddd;
+}
+
+.measure {
+  width: 90px;
+  height: 35px;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+
+.measure.chord {
+  border: 1px solid #333;
+}
+
+.measure.repeat {
+  border: none;
+}
