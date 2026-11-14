@@ -31,7 +31,7 @@ let chordProgressions = [
     description: 'One I made up',
     sequence: [
       [[ 'I', 'm7' ], [ 'I', 'm7' ], [ 'I', 'm7' ], [ 'I', 'm7' ]], 
-      [[ 'IV', 'maj7' ], [ 'IV', 'maj7' ], [ 'bIII', 'maj7' ], [ 'bIII', 'maj7' ]],
+      [[ 'IV', 'm7' ], [ 'IV', 'm7' ], [ 'bIII', 'maj7' ], [ 'bIII', 'maj7' ]],
       [[ 'bVI', 'maj7' ], [ 'bVI', 'maj7' ], [ 'bVI', 'maj7' ], [ 'bVI', 'maj7' ]],
       [[ 'V', '7' ], [ 'V', '7' ], [ 'V', '7' ], [ 'V', '7' ]], 
     ]
@@ -46,7 +46,7 @@ let chordProgressions = [
     ]
   },
   {
-    description: 'Minor-major-minor with backdoor',
+    description: 'To and from parallel major with backdoor',
     sequence: [
       [[ 'I', 'm13' ], [ 'I', 'm13' ], [ 'I', 'm13' ], [ 'III', '7#5#9' ]], 
       [[ 'IV', 'm9' ]],

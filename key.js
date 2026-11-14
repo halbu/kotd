@@ -73,7 +73,7 @@ function convertKeyToScale(keyIdx, keyIsMinor) {
 
   // Add octave numbers to the notes. We start in the fourth octave for all scales.
   let oct = 4;
-  for (i = 0; i < SCALE.length; i++) {
+  for (let i = 0; i < SCALE.length; i++) {
     if (i > 0 && SCALE[i].charAt(0) === 'C') { oct++; }
     SCALE[i] = SCALE[i] + oct;
   }

@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-  <script src="https://cdn.jsdelivr.net/npm/vexflow@4.2.2/build/cjs/vexflow.js"></script>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="chord-chart.css">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daily Musical Key</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="chord-chart.css">
+    <script src="https://cdn.jsdelivr.net/npm/vexflow@4.2.2/build/cjs/vexflow.js"></script>
 </head>
-
 
 <body>
     <div class="container">
@@ -21,21 +19,17 @@
     <div id="output"></div>
 
     <div>
-      <h2> Sample chord progressions: </h2>
-      <div class="descBox" id="d1"></div>
+        <h2>Sample chord progressions:</h2>
+        <div class="descBox" id="d1"></div>
+        <div id="chord-chart"></div>
+    </div>
 
-      <div id="chord-chart-container" class="chord-chart-container">
-      </div>
+    <script src="key.js"></script>
+    <script src="app.js"></script>
+    <script src="progs.js"></script>
+    <script src="chordprogs.js"></script>
+    <script>
+        renderToday();
+    </script>
 </body>
-
-<script src="key.js"></script>
-<script src="app.js"></script>
-<script src="progs.js"></script>
-<script src="chordprogs.js"></script>
-<script>
-  updateDisplay();
-  vexflowRender();
-  addChordProg();
-</script>
-
 </html>
