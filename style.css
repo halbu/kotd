@@ -1,13 +1,153 @@
 body {
     margin: 0;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: top;
-    padding-top: 20vh;
     align-items: center;
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+/* Sub-application selector */
+.app-nav {
+    margin: 24px 0 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    color: #bbb;
+}
+
+.app-nav a {
+    color: #666;
+    text-decoration: none;
+    padding: 4px 6px;
+    border-bottom: 2px solid transparent;
+}
+
+.app-nav a:hover {
+    color: #333;
+}
+
+.app-nav a.active {
+    color: #333;
+    font-weight: 600;
+    border-bottom-color: #333;
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 12vh;
+}
+
+/* Chord Trainer */
+.trainer-controls {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 16px 24px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.tempo {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 20px;
+}
+
+.tempo input {
+    width: 3.2em;
+    font-size: 20px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 2px 0;
+    -moz-appearance: textfield;
+}
+
+.tempo input::-webkit-inner-spin-button,
+.tempo input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.tempo button,
+.start-button {
+    font-size: 16px;
+    border: 1px solid #ccc;
+    background: #f7f7f7;
+    border-radius: 6px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.tempo button {
+    width: 32px;
+    height: 32px;
+}
+
+.start-button {
+    min-width: 80px;
+    height: 36px;
+    font-weight: 600;
+}
+
+.start-button.running {
+    background: #333;
+    color: white;
+    border-color: #333;
+}
+
+.click-toggle {
+    font-size: 14px;
+    color: #555;
+}
+
+.trainer-count {
+    height: 28px;
+    margin: 20px 0 4px;
+    font-size: 20px;
+    color: #888;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.trainer-row {
+    display: flex;
+    align-items: center;
+    margin: 6px 0;
+}
+
+.trainer-label {
+    width: 48px;
+    font-size: 13px;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.trainer-row.next {
+    opacity: 0.5;
+}
+
+.trainer-row .measure.now {
+    background-color: #ffe9a8;
+    border-radius: 3px;
+}
+
+.trainer-hint {
+    margin-top: 24px;
+    font-size: 12px;
+    color: #999;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .container {

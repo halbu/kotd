@@ -10,26 +10,76 @@
 </head>
 
 <body>
-    <div class="container">
-        <div id="intro">The key of the day is...</div>
-        <div id="key-display"></div>
-        <div id="date-info"></div>
-    </div>
+    <nav class="app-nav">
+        <a href="#kotd" data-app="kotd">Key of the Day</a>
+        &nbsp;|&nbsp;
+        <a href="#trainer" data-app="trainer">Chord Trainer</a>
+    </nav>
 
-    <div id="output"></div>
+    <section class="app" id="app-kotd">
+        <div class="container">
+            <div id="intro">The key of the day is...</div>
+            <div id="key-display"></div>
+            <div id="date-info"></div>
+        </div>
 
-    <div>
-        <h2>Sample chord progressions:</h2>
-        <div class="descBox" id="d1"></div>
-        <div id="chord-chart"></div>
-    </div>
+        <div id="output"></div>
+
+        <div>
+            <h2>Sample chord progressions:</h2>
+            <div class="descBox" id="d1"></div>
+            <div id="chord-chart"></div>
+        </div>
+    </section>
+
+    <section class="app" id="app-trainer" hidden>
+        <div class="trainer-controls">
+            <div class="tempo">
+                <span>&#9833; =</span>
+                <button id="tempo-down" aria-label="Slower">&minus;</button>
+                <input id="tempo-input" type="number" min="30" max="300" value="80" aria-label="Tempo">
+                <button id="tempo-up" aria-label="Faster">+</button>
+            </div>
+            <label class="click-toggle"><input type="checkbox" id="click-toggle" checked> Click</label>
+            <button class="start-button" id="start-button">Start</button>
+        </div>
+
+        <div class="trainer-count" id="trainer-count"></div>
+
+        <div class="trainer-row now">
+            <div class="trainer-label">Now</div>
+            <div id="trainer-now"></div>
+        </div>
+        <div class="trainer-row next">
+            <div class="trainer-label">Next</div>
+            <div id="trainer-next"></div>
+        </div>
+
+        <div class="trainer-hint">Space: start/stop &middot; &uarr;/&darr;: tempo</div>
+    </section>
 
     <script src="key.js"></script>
     <script src="app.js"></script>
     <script src="progs.js"></script>
     <script src="chordprogs.js"></script>
+    <script src="trainer.js"></script>
     <script>
         renderToday();
+        initTrainer();
+
+        // Show the sub-application named in the URL hash.
+        function showApp() {
+            const name = location.hash === '#trainer' ? 'trainer' : 'kotd';
+            document.querySelectorAll('.app').forEach((el) => {
+                el.hidden = el.id !== `app-${name}`;
+            });
+            document.querySelectorAll('.app-nav a').forEach((a) => {
+                a.classList.toggle('active', a.dataset.app === name);
+            });
+            if (name !== 'trainer') { stopTrainer(); }
+        }
+        window.addEventListener('hashchange', showApp);
+        showApp();
     </script>
 </body>
 </html>
