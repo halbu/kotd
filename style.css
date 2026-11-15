@@ -143,6 +143,14 @@ body {
     border-radius: 3px;
 }
 
+.trainer-staff {
+    margin-top: 16px;
+    padding: 0 12px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
 .trainer-hint {
     margin-top: 24px;
     font-size: 12px;

@@ -41,6 +41,7 @@
                 <button id="tempo-up" aria-label="Faster">+</button>
             </div>
             <label class="click-toggle"><input type="checkbox" id="click-toggle" checked> Click</label>
+            <label class="click-toggle"><input type="checkbox" id="notes-toggle"> Show notes</label>
             <button class="start-button" id="start-button">Start</button>
         </div>
 
@@ -55,7 +56,9 @@
             <div id="trainer-next"></div>
         </div>
 
-        <div class="trainer-hint">Space: start/stop &middot; &uarr;/&darr;: tempo</div>
+        <div class="trainer-staff" id="trainer-staff" hidden></div>
+
+        <div class="trainer-hint">Space: start/stop &middot; &uarr;/&darr;: tempo &middot; N: show notes</div>
     </section>
 
     <script src="key.js"></script>
